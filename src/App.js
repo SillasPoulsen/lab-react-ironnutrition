@@ -8,6 +8,8 @@ import SearchBar from "./components/SearchBar";
 function App() {
   const [allFoods, setAllFoods] = useState(foods);
   const [updateDishes, setUpdateDishes] = useState(foods);
+  const [show, setShow] = useState(true);
+  const [btnText, setBtnText] = useState("Hide");
 
   const addNewDish = (dishObj) => {
     const allUpdatedDishes = [...updateDishes, dishObj];
@@ -26,16 +28,32 @@ function App() {
   };
 
   function deleteDishes(name) {
-    setAllFoods(
-      [...allFoods].filter((dish) => {
-        return dish.name !== name;
-      })
-    );
+    if (allFoods.length >= 1) {
+      setAllFoods(
+        [...allFoods].filter((dish) => {
+          return dish.name !== name;
+        })
+      );
+    } else {
+      return (
+        <div>
+          <p>No more food</p>
+        </div>
+      );
+    }
   }
+
+  const setStateOfBtn = (event) => {
+    setShow(!show);
+    setBtnText("Show");
+  };
 
   return (
     <div className="App">
-      <AddFoodForm addNewDish={addNewDish} />
+      {show ? <AddFoodForm addNewDish={addNewDish} /> : null}
+      <button type="primary" onClick={setStateOfBtn}>
+        {btnText}
+      </button>
       <SearchBar searchDishes={searchDishes} />
       <div className="foodItemsrow">
         {allFoods.map((foodItem) => {

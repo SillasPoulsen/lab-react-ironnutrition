@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App-logo {
@@ -41,4 +44,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+form {
+  max-width: 600px;
 }

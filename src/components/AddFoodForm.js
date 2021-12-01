@@ -12,10 +12,6 @@ function AddFoodForm({ addNewDish }) {
   const handleCalories = (event) => setCalories(event.target.value);
   const handleServings = (event) => setServings(event.target.checked);
 
-  const [button, setButton] = useState("hide");
-
-  
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -34,15 +30,11 @@ function AddFoodForm({ addNewDish }) {
     setServings(2);
   };
 
-  const showAndHide = (event) => {
-      if
-  }
-
   return (
     <div className="addNewFoodForm">
       <h2>Add new Dish</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} name="basic">
         <label>Name</label>
         <Input type="text" value={name} name="name" onChange={handleName} />
 
@@ -66,9 +58,7 @@ function AddFoodForm({ addNewDish }) {
         />
         <button type="submit">Add new dish</button>
       </form>
-      <button onClick={showAndHide}>Click</button>
     </div>
-    
   );
 }
 

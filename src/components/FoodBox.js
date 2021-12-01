@@ -1,4 +1,4 @@
-import { Card, Col, Divider, Button, Row } from "antd";
+import { Card, Col, Button } from "antd";
 
 function FodBox({ foodItem, deleteDishes }) {
   const calories = foodItem.calories * foodItem.servings;
